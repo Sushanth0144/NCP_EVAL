@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Validation</title>
+    <script type="text/javascript">
+    function Date_validation(){
+        var inputText=prompt("Enter Your Birthdate in dd-mm-yyyy format :")
+        var pdate=[]= inputText.split('-');
+        if(pdate.length==3){
+          var dd = parseInt(pdate[0]);
+          var mm  = parseInt(pdate[1]);
+          var yy = parseInt(pdate[2]);
+          if (mm!=2 && mm>0 && mm<=12){
+              if (mm%2==0 && dd<31){
+                 alert(inputText+'  Date is in valid format!');
+                }
+              else if(mm%2!=0 &&dd<=31){
+                  alert(inputText+'  Date is in Valid Format..!')
+              }
+              else{
+                  alert(inputText+"  Date is in INVALID Format...!")
+              }
+            }
+          else{
+            if (mm==2){
+                var lyear = false;
+                if ( (!(yy % 4) && yy % 100) || !(yy % 400)) {
+                    lyear = true;
+                }
+                if ((lyear==false) && (dd<29)){
+                    alert(inputText+'  Date is in Valid Format!');
+                 }
+                else if ((lyear==true) && (dd<=29)){
+                    alert(inputText+'  Date is in Valid Format!');
+                }
+                else{
+                    alert(inputText+"  Date is in INVALID Format...!")
+                }
+            }
+            else{
+                alert(inputText+"  Date is in Valid Format");
+             }
+        }
+        }
+        else{
+          alert(inputText+"  Invalid date format!");
+        }
+}
+        </script>
+    
+</head>
+    <body>
+        <button style="text-align: center;" onclick="Date_validation()"><b>click on this to see working</b></button>
+    </body>
+</html>
